@@ -53,7 +53,11 @@ def add_product():
     products.append(product2)
 
 def product_sum():
-    print(f"Celková cena všech čísel je {total}")
+    total = 0
+    for product in products:
+        total += product['price']
+
+    print(f"Celková cena všech produktů je {total}Kč")
 
 
 def max_price():
@@ -122,9 +126,6 @@ def menu():
 
     elif choice == 4:
         product_sum()
-        #summary = products['price']
-        #print(f"Celková cena produktů je {total}Kč")
-
         print("")
         menu()
 
