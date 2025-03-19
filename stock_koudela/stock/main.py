@@ -52,6 +52,10 @@ def add_product():
 
     products.append(product2)
 
+def product_sum():
+    print(f"Celková cena všech čísel je {total}")
+
+
 def max_price():
     max_product = products[0]
 
@@ -62,6 +66,13 @@ def max_price():
 
     return max_product
 
+"""
+Shorter version
+def max_price():
+    max_product = max(products, key=lambda product: product['price'])
+    print(f"Produkt s nejvyšší cenou je {max_product['name']} za {max_product['price']} Kč.")
+"""
+
 def min_price():
     min_product = products[0]
 
@@ -71,6 +82,13 @@ def min_price():
             min_product = product
 
     return min_product
+
+"""
+Shorter version
+def min_price():
+    min_product = min(products, key=lambda product: product['price'])
+    print(f"Produkt s nejnižší cenou je {min_product['name']} za {min_product['price']} Kč.")
+"""
 
 
 def menu():
@@ -100,13 +118,16 @@ def menu():
 
     elif choice == 3:
         print("Vyhledej produkt")
-        possible_products()
+        #possible_products()
 
     elif choice == 4:
-        print("Celková cena všech produktů je:")
+        product_sum()
+        #summary = products['price']
+        #print(f"Celková cena produktů je {total}Kč")
+
         print("")
         menu()
-        products_sum()
+
     elif choice == 5:
         print("Nejlevnější produkt je:")
         min_price()
