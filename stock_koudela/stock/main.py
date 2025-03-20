@@ -1,34 +1,34 @@
 products = [
     {
-        "name": "Nivea krém",
+        "name": "nivea krém",
         "price": 89,
     },
     {
-        "name": "Jelení lůj",
+        "name": "jelení lůj",
         "price": 35,
     },
     {
-        "name": "Old Spice deodorant",
+        "name": "old spice deodorant",
         "price": 99,
     },
     {
-        "name": "Sprchový gel Old Spice",
+        "name": "sprchový gel old spice",
         "price": 70,
     },
     {
-        "name": "Burberry Hero parfém 100ml",
+        "name": "burberry hero parfém 100ml",
         "price": 3599,
     },
     {
-        "name": "Versace Eros Flame parfém 300ml",
+        "name": "versace eros flame parfém 300ml",
         "price": 7000,
     },
     {
-        "name": "Garnier vlasový šampon",
+        "name": "garnier vlasový šampon",
         "price": 120,
     },
     {
-        "name": "Adidas sprchový gel all-in-one",
+        "name": "adidas sprchový gel all-in-one",
         "price": 35,
     },
     {
@@ -51,6 +51,21 @@ def add_product():
     }
 
     products.append(product2)
+
+
+def searcher(prefix, arr):
+
+    return [product for product in arr if product["name"].startswith(prefix)]
+
+def search_printer(found):
+
+    if found:
+        print("\nNalezené položky:")
+        for product in found:
+            print(f"Byl nalezen produkt: {product['name']}, S cenou: {product['price']} Kč")
+    else:
+        print("Žádné položky nebyly nalezeny.")
+
 
 def product_sum():
     total = 0
@@ -122,7 +137,10 @@ def menu():
 
     elif choice == 3:
         print("Vyhledej produkt")
-        #possible_products()
+        user_prefix = input("Zadejte část názvu: ").strip().lower()
+        found = searcher(user_prefix, products)
+        search_printer(found)
+        menu()
 
     elif choice == 4:
         product_sum()
@@ -149,5 +167,5 @@ def menu():
         print("Zadal jsi špatně!\n")
         menu()
 
-
 menu()
+
