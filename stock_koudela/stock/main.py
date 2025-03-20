@@ -1,6 +1,6 @@
 products = [
     {
-        "name": "nivea krém",
+        "name": "Nivea krém",
         "price": 89,
     },
     {
@@ -8,27 +8,27 @@ products = [
         "price": 35,
     },
     {
-        "name": "old spice deodorant",
+        "name": "Old spice deodorant",
         "price": 99,
     },
     {
-        "name": "sprchový gel old spice",
+        "name": "Old spice sprchový gel",
         "price": 70,
     },
     {
-        "name": "burberry hero parfém 100ml",
+        "name": "Burberry hero parfém 100ml",
         "price": 3599,
     },
     {
-        "name": "versace eros flame parfém 300ml",
+        "name": "Versace eros flame parfém 300ml",
         "price": 7000,
     },
     {
-        "name": "garnier vlasový šampon",
+        "name": "Garnier vlasový šampon",
         "price": 120,
     },
     {
-        "name": "adidas sprchový gel all-in-one",
+        "name": "Adidas sprchový gel all-in-one",
         "price": 35,
     },
     {
@@ -55,7 +55,7 @@ def add_product():
 
 def searcher(prefix, arr):
 
-    return [product for product in arr if product["name"].startswith(prefix)]
+    return [product for product in arr if prefix.lower() in product["name"].lower()]
 
 def search_printer(found):
 
