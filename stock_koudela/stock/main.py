@@ -65,6 +65,16 @@ def search_printer(found):
     else:
         print("Žádné položky nebyly nalezeny.")
 
+def search_by_price(products, target_price):
+    found_products = [product for product in products if product["price"] == target_price]
+
+    if found_products:
+        print("\nNalezené produkty s cenou", target_price, "Kč:")
+        for product in found_products:
+            print(f"{product['name']} - {product['price']} Kč")
+    else:
+        print(f"Žádné produkty s cenou {target_price} Kč nebyly nalezeny.")
+
 def average_price(products):
 
     total_price = sum(product["price"] for product in products)
@@ -139,6 +149,7 @@ def menu():
     print("6. Produkt s nejvyšší cennou")
     print("7. Průměr všech cen")
     print("8. Úprava produktu")
+    print("9. Najdi produkt podle ceny")
     print("###############\n")
 
     choice = int(input("Volba: "))
@@ -192,6 +203,12 @@ def menu():
     elif choice == 8:
         print("Úprava produktu:")
         edit_product(products)
+        menu()
+
+    elif choice == 9:
+        print("Nalezení produktu podle ceny:")
+        target_price = int(input("Zadej cenu produktu, který hledáš: "))
+        search_by_price(products, target_price)
         menu()
 
 
