@@ -70,6 +70,20 @@ def average_price(products):
     total_price = sum(product["price"] for product in products)
     return total_price / len(products)
 
+def edit_product(products):
+    for i in range(len(products)):
+        print(f"{i + 1}. {products[i]['name']} - {products[i]['price']} Kč")
+
+    choice = int(input("Zadej číslo produktu, který chceš upravit: "))
+
+    new_name = input("Zadej nový název: ")
+    new_price = int(input("Zadej novou cenu: ")) -1
+
+    products[choice]["name"] = new_name
+    products[choice]["price"] = new_price
+
+    print("Produkt byl upraven!")
+
 
 def product_sum():
     total = 0
@@ -121,9 +135,10 @@ def menu():
     print("2. Přidání položky")
     print("3. Vyhledání položky")
     print("4. Celková suma cen")
-    print("5. Produkt s nejnižší cenou")
-    print("6. Produkt s nejvyšší cenou")
+    print("5. Produkt s nejnižší cennou")
+    print("6. Produkt s nejvyšší cennou")
     print("7. Průměr všech cen")
+    print("8. Úprava produktu")
     print("###############\n")
 
     choice = int(input("Volba: "))
@@ -171,6 +186,13 @@ def menu():
     elif choice == 7:
         print("Průměr cen všech produktů:")
         print(average_price(products))
+        menu()
+
+
+    elif choice == 8:
+        print("Úprava produktu:")
+        edit_product(products)
+        menu()
 
 
     else:
