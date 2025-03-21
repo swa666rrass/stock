@@ -52,7 +52,6 @@ def add_product():
 
     products.append(product2)
 
-
 def searcher(prefix, arr):
 
     return [product for product in arr if prefix.lower() in product["name"].lower()]
@@ -65,6 +64,11 @@ def search_printer(found):
             print(f"Byl nalezen produkt: {product['name']}, S cenou: {product['price']} Kč")
     else:
         print("Žádné položky nebyly nalezeny.")
+
+def average_price(products):
+
+    total_price = sum(product["price"] for product in products)
+    return total_price / len(products)
 
 
 def product_sum():
@@ -119,6 +123,7 @@ def menu():
     print("4. Celková suma cen")
     print("5. Produkt s nejnižší cenou")
     print("6. Produkt s nejvyšší cenou")
+    print("7. Průměr všech cen")
     print("###############\n")
 
     choice = int(input("Volba: "))
@@ -136,7 +141,7 @@ def menu():
         menu()
 
     elif choice == 3:
-        print("Vyhledej produkt")
+        print("Vyhledej produkt podle názvu")
         user_prefix = input("Zadejte část názvu: ").strip().lower()
         found = searcher(user_prefix, products)
         search_printer(found)
@@ -162,6 +167,11 @@ def menu():
         print(f"Produkt s nejvyšší cenou je {max_product['name']} za {max_product['price']} Kč.")
         print("")
         menu()
+
+    elif choice == 7:
+        print("Průměr cen všech produktů:")
+        print(average_price(products))
+
 
     else:
         print("Zadal jsi špatně!\n")
