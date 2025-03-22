@@ -4,6 +4,10 @@ Stock je systém skladování, který nám ulehčuje různé akce. Jako napřík
  úprava produktu, zjištění nejdražšího produktu, atd...
 
 ## Vyrobeno s `Python`
+### Výpomoc a zdroje:
+- Google
+- Youtube
+- Chat GPT
 
  # Jak ho používat?
 
